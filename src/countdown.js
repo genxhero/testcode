@@ -36,4 +36,4 @@ class Countdown extends Component {
 
 export default Countdown
 // this is what the real  H1 should look like, utilizing the props
-    // < h1 > { this.props.formatTime(this.state.seconds) }</h1 >
+// < h1 > { this.props.format(this.state.seconds) }</h1 >
