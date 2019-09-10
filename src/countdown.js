@@ -27,11 +27,23 @@ class Countdown extends Component {
       this.setState({seconds: this.state.seconds - 1})
     }
 
+    formatTime(remaining) {
+       //I reckon this is what this.props.format might look like. 
+        let hours = Math.floor(remaining / 3600);
+        let minutes = Math.floor((remaining - (hours * 3600)) / 60);
+        let seconds = remaining - (hours * 3600) - (minutes * 60);
+
+        if (hours < 10) { hours = "0" + hours; }
+        if (minutes < 10) { minutes = "0" + minutes; }
+        if (seconds < 10) { seconds = "0" + seconds; }
+        return hours + ':' + minutes + ':' + seconds;
+    }
+
     render(){
         return (
             <div>
                 <img style={{"height":"20rem"}}src="https://cdn.britannica.com/53/180553-050-FE609C89/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg" />
-                <h1>I think the time remaining is {this.state.seconds} </h1>
+                <h1>I think the time remaining is {this.formatTime(this.state.seconds)} </h1>
             </div>
           
         )
