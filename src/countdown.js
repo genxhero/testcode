@@ -4,6 +4,9 @@
  * 
  * Assuming it also receives seconds as a prop.
  * Also going to go ahead and guess that the prop function receives seconds as a param itself
+ * I mean how crazy do you want me to go with this? The instructions were pretty vague and nondescript.
+ * 
+
  */
 
  import React, {Component} from 'react'
@@ -15,25 +18,22 @@ class Countdown extends Component {
             seconds: this.props.seconds,     
         }
         this.tick = this.tick.bind(this)
-    }
-
-    componentDidMount() {
-        this.start();
-        //Alternatively, this component could be part of a hierarchy of components
-        //and receive its seconds prop as an input from another component.
+        setInterval(() => {
+            this.tick();
+        }, 1000);
     }
 
     tick() {
       this.setState({seconds: this.state.seconds - 1})
     }
 
-   start() {
-       setInterval(this.tick, 1000);
-   }
-
     render(){
-        <h1>{this.props.formatTime(this.state.seconds)}</h1>
+        return (
+          <h1>{this.state.seconds}</h1>
+        )
     }
 }
 
 export default Countdown
+// this is what the real  H1 should look like, utilizing the props
+    // < h1 > { this.props.formatTime(this.state.seconds) }</h1 >
