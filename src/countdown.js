@@ -29,7 +29,11 @@ class Countdown extends Component {
 
     render(){
         return (
-          <h1>{this.state.seconds}</h1>
+            <div>
+                <img style={{"height":"20rem"}}src="https://cdn.britannica.com/53/180553-050-FE609C89/Thinker-Auguste-Rodin-Museum-Paris-1904.jpg" />
+                <h1>I think the time remaining is {this.state.seconds} </h1>
+            </div>
+          
         )
     }
 }
